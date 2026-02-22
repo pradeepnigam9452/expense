@@ -154,7 +154,7 @@ const Dashboard = () => {
                   <div className="card-body">
                     <p className="text-muted text-uppercase small fw-semibold mb-2">Total Income</p>
                     <p className="display-6 fw-bold text-success mb-3">
-                      ${dashboardData.totalIncome?.toFixed(2) || '0.00'}
+                      ₹{dashboardData.totalIncome?.toFixed(2) || '0.00'}
                     </p>
                     <p className="text-muted small">+{dashboardData.incomeCount} transactions</p>
                   </div>
@@ -167,7 +167,7 @@ const Dashboard = () => {
                   <div className="card-body">
                     <p className="text-muted text-uppercase small fw-semibold mb-2">Total Expenses</p>
                     <p className="display-6 fw-bold text-danger mb-3">
-                      ${dashboardData.totalExpenses?.toFixed(2) || '0.00'}
+                      ₹{dashboardData.totalExpenses?.toFixed(2) || '0.00'}
                     </p>
                     <p className="text-muted small">+{dashboardData.expenseCount} transactions</p>
                   </div>
@@ -176,11 +176,11 @@ const Dashboard = () => {
 
               {/* Current Savings Card */}
               <div className="col-12 col-md-6 col-lg-3">
-                <div className={`card shadow-sm h-100 ${dashboardData.currentSavings >= 0 ? 'border-info' : 'border-danger'}`}>
+                <div className={`card shadow-sm h-100 ₹{dashboardData.currentSavings >= 0 ? 'border-info' : 'border-danger'}`}>
                   <div className="card-body">
                     <p className="text-muted text-uppercase small fw-semibold mb-2">Current Savings</p>
-                    <p className={`display-6 fw-bold mb-3 ${dashboardData.currentSavings >= 0 ? 'text-info' : 'text-danger'}`}>
-                      ${dashboardData.currentSavings?.toFixed(2) || '0.00'}
+                    <p className={`display-6 fw-bold mb-3 ₹{dashboardData.currentSavings >= 0 ? 'text-info' : 'text-danger'}`}>
+                      ₹{dashboardData.currentSavings?.toFixed(2) || '0.00'}
                     </p>
                     <p className="text-muted small">Savings rate: {dashboardData.savingRate}%</p>
                   </div>
@@ -193,10 +193,10 @@ const Dashboard = () => {
                   <div className="card-body">
                     <p className="text-muted text-uppercase small fw-semibold mb-2">Active Goal</p>
                     <p className="display-6 fw-bold text-primary mb-3">
-                      ${dashboardData.savingGoal?.targetAmount?.toFixed(2) || 'N/A'}
+                      ₹{dashboardData.savingGoal?.targetAmount?.toFixed(2) || 'N/A'}
                     </p>
                     <p className="text-muted small">
-                      {dashboardData.savingGoal ? `${dashboardData.savingGoal.duration} months target` : 'Set a goal'}
+                      {dashboardData.savingGoal ? `₹{dashboardData.savingGoal.duration} months target` : 'Set a goal'}
                     </p>
                   </div>
                 </div>
@@ -346,15 +346,15 @@ const Dashboard = () => {
                       <div className="list-group list-group-flush">
                         <div className="list-group-item px-0 d-flex justify-content-between">
                           <span className="text-dark">Monthly Savings</span>
-                          <strong className="text-info">${analysisData.currentMonthlySavings?.toFixed(2)}</strong>
+                          <strong className="text-info">₹{analysisData.currentMonthlySavings?.toFixed(2)}</strong>
                         </div>
                         <div className="list-group-item px-0 d-flex justify-content-between">
                           <span className="text-dark">Required Monthly</span>
-                          <strong className="text-primary">${analysisData.requiredMonthlySavings?.toFixed(2)}</strong>
+                          <strong className="text-primary">₹{analysisData.requiredMonthlySavings?.toFixed(2)}</strong>
                         </div>
                         <div className="list-group-item px-0 d-flex justify-content-between">
                           <span className="text-dark">Target Amount</span>
-                          <strong className="text-success">${analysisData.targetAmount?.toFixed(2)}</strong>
+                          <strong className="text-success">₹{analysisData.targetAmount?.toFixed(2)}</strong>
                         </div>
                         <div className="list-group-item px-0 d-flex justify-content-between">
                           <span className="text-dark">Duration</span>
@@ -376,12 +376,12 @@ const Dashboard = () => {
                           </div>
                           <div className="alert alert-info mb-0" role="alert">
                             <p className="mb-0 small">
-                              <span className="fw-semibold">Projected savings:</span> ${analysisData.projections?.projectedSavings?.toFixed(2)}
+                              <span className="fw-semibold">Projected savings:</span> ₹{analysisData.projections?.projectedSavings?.toFixed(2)}
                             </p>
                           </div>
                           <div className="alert alert-primary mb-0" role="alert">
                             <p className="mb-0 small">
-                              <span className="fw-semibold">Surplus after goal:</span> ${analysisData.projections?.surplus?.toFixed(2)}
+                              <span className="fw-semibold">Surplus after goal:</span> ₹{analysisData.projections?.surplus?.toFixed(2)}
                             </p>
                           </div>
                           <div className="alert alert-success mt-2 mb-0">
@@ -392,7 +392,7 @@ const Dashboard = () => {
                         <div className="d-flex flex-column gap-2">
                           <div className="alert alert-danger mb-0" role="alert">
                             <p className="mb-0 small">
-                              <span className="fw-semibold">Additional monthly savings:</span> ${Math.abs(analysisData.difference)?.toFixed(2)}
+                              <span className="fw-semibold">Additional monthly savings:</span> ₹{Math.abs(analysisData.difference)?.toFixed(2)}
                             </p>
                           </div>
                           <div className="alert alert-warning mb-0" role="alert">
@@ -437,7 +437,7 @@ const Dashboard = () => {
                               cx="50%"
                               cy="50%"
                               labelLine={false}
-                              label={({ name, percentage }) => `${name}: ${percentage}%`}
+                              label={({ name, percentage }) => `₹{name}: ₹{percentage}%`}
                               outerRadius={80}
                               fill="#8884d8"
                               dataKey="value"
@@ -450,7 +450,7 @@ const Dashboard = () => {
                               <Cell fill="#6f42c1" />
                               <Cell fill="#fd7e14" />
                             </Pie>
-                            <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                            <Tooltip formatter={(value) => `₹₹{value.toFixed(2)}`} />
                           </PieChart>
                         </ResponsiveContainer>
                       </div>
@@ -473,14 +473,14 @@ const Dashboard = () => {
                               return (
                                 <tr key={category}>
                                   <td>
-                                    <span className={`badge bg-${colors[index % colors.length]} me-2`}></span>
+                                    <span className={`badge bg-₹{colors[index % colors.length]} me-2`}></span>
                                     {category}
                                   </td>
                                   <td className="text-end fw-semibold">
-                                    ${typeof data === 'object' ? (data.total?.toFixed(2) || '0.00') : (data?.toFixed(2) || '0.00')}
+                                    ₹{typeof data === 'object' ? (data.total?.toFixed(2) || '0.00') : (data?.toFixed(2) || '0.00')}
                                   </td>
                                   <td className="text-end">
-                                    {typeof data === 'object' && data.percentage ? `${data.percentage}%` : 'N/A'}
+                                    {typeof data === 'object' && data.percentage ? `₹{data.percentage}%` : 'N/A'}
                                   </td>
                                 </tr>
                               );

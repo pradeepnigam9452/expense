@@ -17,12 +17,10 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg sticky-top border-bottom border-secondary">
+    <nav className="navbar navbar-expand-lg bg-lite shadow-lg sticky-top border-bottom border-secondary">
       <div className="container-fluid">
         <Link to="/dashboard" className="navbar-brand fw-bold d-flex align-items-center gap-2 fs-5">
-          <div className="rounded-circle bg-primary p-2" style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span className="text-white fw-bold">F</span>
-          </div>
+          
           <span>Finance Tracker</span>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -31,6 +29,15 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
+              <Link
+                to="/dashboard"
+                className={`nav-link ${pathname === '/dashboard' ? 'active' : ''}`}
+              >
+               Reset Dashboard
+              </Link>
+            </li>
+
+             <li className="nav-item">
               <Link
                 to="/dashboard"
                 className={`nav-link ${pathname === '/dashboard' ? 'active' : ''}`}

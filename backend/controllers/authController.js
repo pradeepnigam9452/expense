@@ -4,9 +4,7 @@ const { generateToken } = require('../config/jwt');
 
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
-
-    // Check if user exists
+    const { name, email, password } = req.body; 
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({
