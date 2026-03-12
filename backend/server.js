@@ -30,7 +30,7 @@ app.use('/api/analysis', analysisRoutes);
 // Welcome route
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to Expense Tracker API',
+    message: 'Welcome to fundflow Tracker API',
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
@@ -53,4 +53,8 @@ app.use((req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-module.exports = app;
+// module.exports = app;
+
+app.listen(PORT,()=>{
+  console.log("server is on")
+})
